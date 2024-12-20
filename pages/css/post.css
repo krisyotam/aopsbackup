@@ -1,0 +1,31 @@
+/* Page-specific styles */
+.post-title {
+    font-size: 1.5rem; /* Reduced size for a more compact title */
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.author-date {
+    text-align: center;
+    font-size: 0.9rem; /* Smaller font size for author and date */
+    color: #6a737d;
+    margin-bottom: 1.5rem; /* Slightly reduced margin for better spacing */
+}
+
+.post-content {
+    font-size: 1rem; /* Smaller font size for the main content */
+    color: #444;
+    line-height: 1.6; /* Adjusted line-height for a more compact look */
+    margin-bottom: 2rem;
+}
+
+.math-example {
+    background-color: #f8f9fa;
+    padding: 0.8rem; /* Reduced padding for more compact examples */
+    margin-bottom: 1.5rem; /* Reduced margin for better spacing */
+    border-radius: 5px;
+    font-family: "Courier New", monospace;
+    font-size: 1rem; /* Reduced font size for a more consistent appearance */
+}

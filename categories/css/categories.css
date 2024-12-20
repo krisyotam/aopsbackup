@@ -1,0 +1,46 @@
+/* Basic styling to maintain minimal aesthetic */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Clean background */
+    color: #333;  /* Default text color */
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1#category-name {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th {
+    font-size: 1rem;
+    font-weight: normal;
+    color: inherit;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
+    border-top: 1px solid #ddd;
+}
+
+table a {
+    color: inherit; /* No color change for links */
+    text-decoration: none; /* Remove underline */
+}
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kris Yotam's Math Blog</title>
+    <link rel="stylesheet" href="/pages/css/styles.css">
+    
+    <!-- Include MathJax 3.x for LaTeX rendering -->
+    <script type="text/javascript">
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+          },
+          chtml: {
+            scale: 1.0
+          }
+        };
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+</head>
+    
+<body>
+    <h1>Kris Yotam</h1>
+    <p class="subheader">thoughts on number theory, numerical analysis, competitive mathematics, math history, puzzles, and pedagogy.</p>
+
+    <div id="blog-posts">
+        <!-- Blog posts will be inserted here dynamically -->
+    </div>
+
+    <footer>
+        <nav>
+            <a href="/index.html">Home</a> •
+            <a href="/pages/html/categories.html">Index</a> •
+            <a href="/pages/html/about.html">About</a>
+        </nav>
+    </footer>
+
+    <!-- Include the external JavaScript file -->
+    <script src="/pages/js/main_feed.js"></script>
+
+    <!-- Add smooth scrolling script -->
+    <script src="/pages/js/smoothScroll.js"></script>
+</body>
+</html>

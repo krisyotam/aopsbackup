@@ -1,0 +1,45 @@
+{
+    "blog_posts": [
+      {
+        "post_date": "2024-12-18",
+        "description": "An introduction to calculus, focusing on limits and derivatives. $$f(x) = x^2 + 3x + 2$$ and its derivative.",
+        "post_name": "Introduction to Calculus: Limits and Derivatives",
+        "post_link": "https://example.com/introduction-to-calculus-limits-derivatives",
+        "category_link": "https://example.com/mathematics",
+        "category_name": "Applied Algebraic Number Theory"
+      },
+      {
+        "post_date": "2024-12-17",
+        "description": "Exploring integrals and their applications. $$\\\\int_{0}^{1} x^2 \\, dx = \\\\frac{1}{3}$$.",
+        "post_name": "Integrals and Applications",
+        "post_link": "https://example.com/integrals-and-applications",
+        "category_link": "https://example.com/mathematics",
+        "category_name": "Numerical Analysis"
+      },
+      {
+        "post_date": "2024-12-16",
+        "description": "A dive into linear algebra with a focus on matrices and eigenvalues. $$A = \\\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\end{pmatrix}$$, find the eigenvalues.",
+        "post_name": "Linear Algebra: Matrices and Eigenvalues",
+        "post_link": "https://example.com/linear-algebra-matrices-eigenvalues",
+        "category_link": "https://example.com/mathematics",
+        "category_name": "Mathematical Pedagogy"
+      },
+      {
+        "post_date": "2024-12-15",
+        "description": "Explaining the Fourier Transform and its properties. $$F(f(t)) = \\\\int_{-\\\\infty}^{\\\\infty} f(t) e^{-i 2\\\\pi ft} \\, dt$$.",
+        "post_name": "Understanding the Fourier Transform",
+        "post_link": "https://example.com/understanding-fourier-transform",
+        "category_link": "https://example.com/mathematics",
+        "category_name": "Analysis I"
+      },
+      {
+        "post_date": "2024-12-14",
+        "description": "A deep dive into number theory, including prime factorization. $$210 = 2 \\\\times 3 \\\\times 5 \\\\times 7$$.",
+        "post_name": "Number Theory: Prime Factorization",
+        "post_link": "https://example.com/number-theory-prime-factorization",
+        "category_link": "https://example.com/mathematics",
+        "category_name": "Non-Commutative Algebraic Topology"
+      }
+    ]
+  }
+  
