@@ -5,40 +5,56 @@
       "description": "Welcome to my math blog! In this post, we'll explore some fundamental concepts in number theory and solve a few",
       "post_name": "Advanced Topics in Number Theory",
       "post_link": "/posts/html/post1.html",
-      "category_link": "/categories/html/number-theory.html",
-      "category_name": "Number Theory"
+      "category_link": "/categories/html/prealgebra.html",
+      "category_name": "Prealgebra"
     },
     {
       "post_date": "December 20, 2024",
       "description": "In this post, we'll delve into the world of algebraic geometry, a fascinating field that blends algebra, geometry, and number",
       "post_name": "Introduction to Algebraic Geometry",
       "post_link": "/posts/html/post2.html",
-      "category_link": "/categories/html/algebraic-geometry.html",
-      "category_name": "Algebraic Geometry"
+      "category_link": "/categories/html/algebra.html",
+      "category_name": "Algebra"
     },
     {
       "post_date": "December 21, 2024",
       "description": "Real analysis is the branch of mathematics that deals with the behavior of real numbers and the functions that define",
       "post_name": "The Fundamentals of Real Analysis",
       "post_link": "/posts/html/post3.html",
-      "category_link": "/categories/html/real-analysis.html",
-      "category_name": "Real Analysis"
-    },
-    {
-      "post_date": "December 22, 2024",
-      "description": "Complex analysis is the study of complex-valued functions, and it has powerful applications in many fields of mathematics. In this",
-      "post_name": "Exploring Complex Analysis",
-      "post_link": "/posts/html/post4.html",
-      "category_link": "/categories/html/complex-analysis.html",
-      "category_name": "Complex Analysis"
+      "category_link": "/categories/html/number-theory.html",
+      "category_name": "Number Theory"
     },
     {
       "post_date": "December 23, 2024",
       "description": "Differential equations are a fundamental tool in mathematics used to describe phenomena that involve rates of change. In this post,",
       "post_name": "Differential Equations in Mathematics",
       "post_link": "/posts/html/post5.html",
-      "category_link": "/categories/html/differential-equations.html",
-      "category_name": "Differential Equations"
+      "category_link": "/categories/html/geometry.html",
+      "category_name": "Geometry"
+    },
+    {
+      "post_date": "December 23, 2024",
+      "description": "Differential equations are a fundamental tool in mathematics used to describe phenomena that involve rates of change. In this post,",
+      "post_name": "Differential Equations in Mathematics",
+      "post_link": "/posts/html/post6.html",
+      "category_link": "/categories/html/intermediate-algebra.html",
+      "category_name": "Intermediate Algebra"
+    },
+    {
+      "post_date": "December 22, 2024",
+      "description": "Complex analysis is the study of complex-valued functions, and it has powerful applications in many fields of mathematics. In this",
+      "post_name": "Exploring Complex Analysis",
+      "post_link": "/posts/html/post4.html",
+      "category_link": "/categories/html/counting-and-probability.html",
+      "category_name": "Counting and Probability"
+    },
+    {
+      "post_date": "December 23, 2024",
+      "description": "Differential equations are a fundamental tool in mathematics used to describe phenomena that involve rates of change. In this post,",
+      "post_name": "Precalculus",
+      "post_link": "/posts/html/post7.html",
+      "category_link": "/categories/html/geometry.html",
+      "category_name": "Geometry"
     }
   ]
 }

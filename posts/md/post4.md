@@ -1,6 +1,6 @@
 ---
 title: "Exploring Complex Analysis"
-category: "Complex Analysis"
+category: "Counting and Probability"
 author: "Kris Yotam"
 date: "December 22, 2024"
 ---

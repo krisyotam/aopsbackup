@@ -1,5 +1,5 @@
 ---
-title: "Differential Equations in Mathematics"
+title: "Precalculus"
 category: "Geometry"
 author: "Kris Yotam"
 date: "December 23, 2024"

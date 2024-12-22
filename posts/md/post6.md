@@ -1,6 +1,6 @@
 ---
 title: "Differential Equations in Mathematics"
-category: "Geometry"
+category: "Intermediate Algebra"
 author: "Kris Yotam"
 date: "December 23, 2024"
 ---

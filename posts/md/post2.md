@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Algebraic Geometry"
-category: "Algebraic Geometry"
+category: "Algebra"
 author: "Kris Yotam"
 date: "December 20, 2024"
 ---

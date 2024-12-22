@@ -1,6 +1,6 @@
 ---
 title: "Advanced Topics in Number Theory"
-category: "Number Theory"
+category: "Prealgebra"
 author: "Kris Yotam"
 date: "December 19, 2024"
 ---

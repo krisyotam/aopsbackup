@@ -1,6 +1,6 @@
 ---
 title: "The Fundamentals of Real Analysis"
-category: "Real Analysis"
+category: "Number Theory"
 author: "Kris Yotam"
 date: "December 21, 2024"
 ---
