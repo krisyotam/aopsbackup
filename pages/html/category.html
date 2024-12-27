@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Kris Yotam's Math Blog</title>
+    <link rel="stylesheet" href="/pages/css/styles.css">
+    <link rel="stylesheet" href="/pages/css/categories.css">
+</head>
+<body>
+    <main>
+        <!-- Main content of the page -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="Category">Category</th>
+                    <th class="post-count">Post Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Categories will be dynamically loaded here -->
+            </tbody>
+        </table>
+
+        <!-- Back Button -->
+        <button id="back-button">Back</button>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="/index.html">Home</a> •
+            <a href="/pages/html/category.html">Index</a> •
+            <a href="/pages/html/about.html">About</a>
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.querySelector('table tbody');
+
+            // Fetch posts from Ghost API (replace with your API endpoint)
+            const apiUrl = 'https://kris-yotam.ghost.io/ghost/api/v3/content/posts/';
+            const apiKey = 'a7df4f0f931681f8719c806cbf';
+
+            // Fetch posts data from the API
+            fetch(`${apiUrl}?key=${apiKey}&include=tags`)
+                .then(response => response.json())
+                .then(data => {
+                    const posts = data.posts;
+                    const categories = new Map();
+
+                    // Aggregate category data but only for posts with the '#krisaops.com' internal tag
+                    posts.forEach(post => {
+                        // Check if the post has the '#krisaops.com' tag
+                        const hasKrisaopsTag = post.tags.some(tag => tag.name === '#krisaops.com');
+
+                        if (hasKrisaopsTag) {
+                            // Process tags for posts with the '#krisaops.com' tag
+                            post.tags.forEach(tag => {
+                                if (tag.name !== '#krisaops.com') {  // Ignore '#krisaops.com' as a category
+                                    if (categories.has(tag.name)) {
+                                        categories.get(tag.name).count++;
+                                    } else {
+                                        categories.set(tag.name, { link: `/pages/html/category_template.html?category=${tag.name.toLowerCase().replace(/\s+/g, '-')}`, count: 1 });
+                                    }
+                                }
+                            });
+                        }
+                    });
+
+                    // Populate the table dynamically
+                    categories.forEach((value, key) => {
+                        const row = document.createElement('tr');
+
+                        // Create category name cell with a link
+                        const categoryCell = document.createElement('td');
+                        const categoryLink = document.createElement('a');
+                        categoryLink.href = value.link;
+                        categoryLink.textContent = key;
+                        categoryLink.classList.add('category-link');
+
+                        categoryCell.appendChild(categoryLink);
+
+                        // Create post count cell
+                        const countCell = document.createElement('td');
+                        countCell.textContent = value.count;
+
+                        // Append cells to the row
+                        row.appendChild(categoryCell);
+                        row.appendChild(countCell);
+
+                        // Append row to the table body
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading or parsing posts:', error);
+                });
+
+                            // Back Button functionality
+                const backButton = document.getElementById('back-button');
+                backButton.addEventListener('click', function () {
+                    window.location.href = '/index.html'; // Navigate to the index page
+                });
+
+        });
+    </script>
+</body>
+</html>

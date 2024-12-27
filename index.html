@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kris Yotam's Math Blog</title>
     <link rel="stylesheet" href="/pages/css/styles.css">
-    
-    <!-- Include MathJax 3.x for LaTeX rendering -->
+    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript">
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            processEscapes: true
-          },
-          chtml: {
-            scale: 1.0
-          }
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                renderActions: {
+                    findEquation: [10, function (doc) {}, '']
+                }
+            }
         };
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
       
 </head>
     
@@ -34,7 +35,7 @@
     <footer>
         <nav>
             <a href="/index.html">Home</a> •
-            <a href="/pages/html/categories.html">Index</a> •
+            <a href="/pages/html/category.html">Index</a> •
             <a href="/pages/html/about.html">About</a>
         </nav>
     </footer>

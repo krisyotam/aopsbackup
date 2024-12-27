@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="post-title">Post Title</title> <!-- Title will be dynamically updated -->
+    <link rel="stylesheet" href="/pages/css/post.css">
+    <link rel="stylesheet" href="/pages/css/styles.css">
+    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                renderActions: {
+                    findEquation: [10, function (doc) {}, '']
+                }
+            }
+        };
+    </script>
+    <style>
+        /* Back button styling */
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background-color: #24292e; /* Dark background to match the monochrome theme */
+            color: white;
+            border: 1px solid #444; /* Slightly lighter border for a subtle effect */
+            font-size: 1rem;
+            font-weight: normal; /* No bold text */
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between text and the arrow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+            transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition on hover */
+            text-decoration: none; /* Ensure no underline */
+        }
+
+        /* Hover effect */
+        .back-button:hover {
+            background-color: #333; /* Darker shade for hover */
+            border-color: #666; /* Slightly lighter border on hover */
+        }
+
+        /* Arrow Icon */
+        .back-button::before {
+            content: '←'; /* Left arrow symbol */
+            font-size: 1.2rem; /* Slightly larger size for the arrow */
+        }
+
+        /* Focus effect for accessibility */
+        .back-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Light blue focus ring */
+        }
+    </style>
+
+</head>
+
+<body class="post-page">
+
+    <!-- Unique Body Content Section -->
+    <div class="post-wrapper exploring-pedagogy-post">
+        <article class="blog-post">
+            <h2 id="post-title-text" class="post-title">Post Title</h2> <!-- Title will be dynamically inserted -->
+            <section class="author-date">
+                <p><strong>Posted on:</strong> <span id="post-date">Date</span></p>
+            </section>
+            <div class="meta-separator"></div> <!-- Separator Line -->
+
+            <div class="post-content" id="post-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <nav>
+            <a href="/index.html">Home</a> •
+            <a href="/pages/html/category.html">Index</a> •
+            <a href="/pages/html/about.html">About</a>
+        </nav>
+    </footer>
+
+    <!-- Back Button -->
+    <a href="/index.html" class="back-button">Back to Home</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            // Extract post slug or post ID from URL (e.g., ?slug=example-post or ?id=123)
+            const urlParams = new URLSearchParams(window.location.search);
+            const postSlug = urlParams.get('post'); // slug-based link
+            const postId = urlParams.get('id'); // ID-based link
+
+            const apiKey = 'a7df4f0f931681f8719c806cbf'; // Use your actual API key
+            const apiUrl = 'https://kris-yotam.ghost.io/ghost/api/v3/content/posts/';
+
+            // Check if we have a post slug or ID
+            if (!postSlug && !postId) {
+                console.error('No post slug or ID found in URL.');
+                return;
+            }
+
+            // Determine API URL based on which parameter (slug or id) is present
+            let fetchUrl = '';
+            if (postSlug) {
+                // Fetch by slug
+                fetchUrl = `${apiUrl}?key=${apiKey}&filter=slug:${postSlug}&include=tags`;
+            } else if (postId) {
+                // Fetch by ID
+                fetchUrl = `${apiUrl}${postId}/?key=${apiKey}&include=tags`;
+            }
+
+            try {
+                const response = await fetch(fetchUrl);
+                const data = await response.json();
+
+                if (!response.ok || !data.posts || data.posts.length === 0) {
+                    console.error('Post not found or failed to fetch post data.');
+                    return;
+                }
+
+                const post = data.posts[0];
+                document.title = post.title; // Set the page title dynamically
+                document.getElementById('post-title').innerText = post.title;
+                document.getElementById('post-title-text').innerText = post.title;
+                document.getElementById('post-date').innerText = new Date(post.published_at).toLocaleDateString();
+
+                // Set the post content
+                const contentWrapper = document.getElementById('post-content');
+                contentWrapper.innerHTML = post.html; // This will include the full content of the post
+
+                // Trigger MathJax rendering for any math content
+                MathJax.typeset();
+            } catch (error) {
+                console.error('Error fetching the post data:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>

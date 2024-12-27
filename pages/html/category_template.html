@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - Kris Yotam's Math Blog</title>
+    <link rel="stylesheet" href="/pages/css/styles.css">
+    <link rel="stylesheet" href="/pages/css/categories.css">
+</head>
+<body>
+
+    <main>
+        <!-- Category name will be dynamically updated -->
+        <h1 id="category-name">Category</h1>
+        
+        <!-- Category description will be dynamically updated -->
+        <p id="category-description"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="post-title">Post Title</th>
+                    <th class="post-date">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Posts will be dynamically loaded here -->
+            </tbody>
+        </table>
+
+        <!-- Back Button -->
+        <button id="back-button">Back</button>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="/index.html">Home</a> •
+            <a href="/pages/html/category.html">Index</a> •
+            <a href="/pages/html/about.html">About</a>
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get("category");
+            const apiUrl = `https://kris-yotam.ghost.io/ghost/api/v3/content/posts/?key=a7df4f0f931681f8719c806cbf&filter=tags:${categoryParam}&include=tags`; // API URL with category filter
+            const postsContainer = document.querySelector('table tbody');
+
+            function fetchPosts() {
+                console.log("Fetching posts from API for category: " + categoryParam);
+
+                // Fetching posts from the API
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            console.error("Failed to fetch posts. HTTP Status:", response.status);
+                            throw new Error(`Failed to fetch posts. HTTP Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log("Data received from API:", data);
+
+                        if (!data.posts || data.posts.length === 0) {
+                            console.warn("No posts found in the API response.");
+                            document.getElementById("category-description").textContent = `No posts found for the category: ${categoryParam}`;
+                            return;
+                        }
+
+                        // Normalize the category name for display (for title case)
+                        const formattedCategory = categoryParam.replace(/-/g, " ").toLowerCase();
+                        console.log("Formatted Category:", formattedCategory);
+
+                        // Update the category name in the header
+                        const categoryNameFormatted = formattedCategory.replace(/\b\w/g, char => char.toUpperCase());
+                        document.getElementById("category-name").textContent = `Posts in ${categoryNameFormatted.replace(/-/g, " ")}`;
+
+                        // Clear previous posts and render the filtered posts
+                        postsContainer.innerHTML = ''; // Clear any previous posts
+
+                        // Loop through the posts and create table rows
+                        data.posts.forEach(post => {
+                            const row = document.createElement('tr');
+
+                            // Create a cell for the post title
+                            const postCell = document.createElement('td');
+                            const postLink = document.createElement('a');
+                            postLink.href = `/pages/html/post.html?post=${post.slug}`;  // Link to the post page using the slug
+                            postLink.textContent = post.title;
+                            postCell.appendChild(postLink);
+
+                            // Create a cell for the post date
+                            const dateCell = document.createElement('td');
+                            const postDate = new Date(post.published_at); // Convert the published date to a Date object
+                            const formattedDate = postDate.toLocaleDateString(); // Format the date (can adjust based on locale)
+                            dateCell.textContent = formattedDate;
+
+                            // Append both cells to the row
+                            row.appendChild(postCell);
+                            row.appendChild(dateCell);
+
+                            // Append the row to the table
+                            postsContainer.appendChild(row);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading posts:', error);
+                    });
+            }
+
+            if (categoryParam) {
+                fetchPosts();
+            } else {
+                console.error("No category selected.");
+                document.getElementById("category-description").textContent = "No category selected.";
+            }
+
+            // Back Button functionality
+            const backButton = document.getElementById('back-button');
+            backButton.addEventListener('click', function () {
+                window.history.back(); // Navigate back to the previous page
+            });
+        });
+    </script>
+
+</body>
+</html>

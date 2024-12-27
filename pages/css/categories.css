@@ -79,7 +79,6 @@ tr:hover {
     }
 }
 
-
 /* Ensure Post Title and Date headers have the same style */
 th.post-title, th.post-date {
     font-size: 1rem;   /* Same font size */
@@ -91,4 +90,9 @@ th.post-title, th.post-date {
 table a {
     color: inherit;   /* Inherit color from parent */
     text-decoration: none; /* Remove underline */
+}
+
+/* Styling for category link hover effect */
+.category-link:hover {
+    text-decoration: underline; /* Underline category link on hover */
 }
