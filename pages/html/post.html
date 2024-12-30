@@ -114,7 +114,7 @@
             let fetchUrl = '';
             if (postSlug) {
                 // Fetch by slug
-                fetchUrl = `${apiUrl}?key=${apiKey}&filter=slug:${postSlug}&include=tags`;
+                fetchUrl = `${apiUrl}?key=${apiKey}&filter=slug:${postSlug}&include=tags&limit=500`;
             } else if (postId) {
                 // Fetch by ID
                 fetchUrl = `${apiUrl}${postId}/?key=${apiKey}&include=tags`;

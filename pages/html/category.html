@@ -43,7 +43,7 @@
             const apiKey = 'a7df4f0f931681f8719c806cbf';
 
             // Fetch posts data from the API
-            fetch(`${apiUrl}?key=${apiKey}&include=tags`)
+            fetch(`${apiUrl}?key=${apiKey}&include=tags&limit=500`)
                 .then(response => response.json())
                 .then(data => {
                     const posts = data.posts;

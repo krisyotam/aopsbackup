@@ -44,7 +44,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
             const categoryParam = urlParams.get("category");
-            const apiUrl = `https://kris-yotam.ghost.io/ghost/api/v3/content/posts/?key=a7df4f0f931681f8719c806cbf&filter=tags:${categoryParam}&include=tags`; // API URL with category filter
+            const apiUrl = `https://kris-yotam.ghost.io/ghost/api/v3/content/posts/?key=a7df4f0f931681f8719c806cbf&filter=tags:${categoryParam}&include=tags&limit=500`; // API URL with category filter
             const postsContainer = document.querySelector('table tbody');
 
             function fetchPosts() {

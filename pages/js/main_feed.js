@@ -3,7 +3,7 @@ const API_URL = 'https://kris-yotam.ghost.io/ghost/api/v3/content/posts/';
 const API_KEY = 'a7df4f0f931681f8719c806cbf';  // Ensure you are using a valid API key
 
 // Construct the API URL to fetch all posts
-const url = `${API_URL}?key=${API_KEY}&include=tags`;
+const url = `${API_URL}?key=${API_KEY}&include=tags&limit=500`;
 
 fetch(url)
     .then(response => {
